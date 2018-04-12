@@ -123,6 +123,7 @@ class CreditControlLine(models.Model):
                                       string='Overdue Level',
                                       required=True,
                                       readonly=True,
+                                      domain="[('policy_id', '=', policy_id)]",
                                       states={'draft': [('readonly', False)]})
 
     policy_id = fields.Many2one('credit.control.policy',
